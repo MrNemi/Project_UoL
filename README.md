@@ -3,7 +3,7 @@ Ubuntu 22.04.5 LTS | ROS2 Humble Hawksbill
 
 
 # Overview #
-This repository contains ROS 2 packages for simulating and controlling the myCobot robotic arm using ROS 2 Control and MoveIt 2.
+This repository contains ROS 2 packages for simulating and controlling the UR5e robotic arm using ROS 2 Control and MoveIt 2.
 
 
 # Features # 
