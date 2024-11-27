@@ -38,29 +38,10 @@ def generate_launch_description():
         )
     )
 
-    robot_state_publisher_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(launch_file_dir, 'ur5e_state_pub.launch.py')
-        ),
-        launch_arguments={'use_sim_time': use_sim_time}.items()
-    )
-
-    #spawn_ur5e_cmd = IncludeLaunchDescription(
-    #    PythonLaunchDescriptionSource(
-     #       os.path.join(launch_file_dir, 'spawn_ur5e.launch.py')
-      #  ),
-       # launch_arguments={
-        #    'x_pose': x_pose,
-         #   'y_pose': y_pose
-        #}.items()
-    #)
-
     ld = LaunchDescription()
 
     # Add the commands to the launch description
     ld.add_action(gzserver_cmd)
     ld.add_action(gzclient_cmd)
-    ld.add_action(robot_state_publisher_cmd)
-    #ld.add_action(spawn_ur5e_cmd)
 
     return ld
