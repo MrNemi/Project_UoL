@@ -41,6 +41,7 @@ def generate_launch_description():
             os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py')
         )
     )
+    
     # Start robot state publisher for UR5e robotic arm
     ur5e_state_publisher_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(

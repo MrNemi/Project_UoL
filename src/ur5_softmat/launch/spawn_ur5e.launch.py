@@ -8,7 +8,6 @@ from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
-
 def generate_launch_description():
     # Get the urdf file
     model_name = 'ur5e'
@@ -41,14 +40,12 @@ def generate_launch_description():
             '-file', sdf_path,
             '-x', x_pose,
             '-y', y_pose,
-            '-z', '0.01',
-            '-R', '0',
-            '-P', '0',
-            '-Y', '115'
+            '-z', '0.01'
         ],
         output='screen',
     )
 
+    # here we create an empty launch description object
     ld = LaunchDescription()
 
     # Declare the launch options
