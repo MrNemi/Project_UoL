@@ -14,6 +14,6 @@ def generate_launch_description():
             namespace='',
             executable='rviz2',
             name='rviz2',
-            arguments=['-d' + os.path.join(get_package_share_directory('uav_gazebo'), 'rviz', 'iris_config.rviz')]
+            arguments=['-d' + os.path.join(get_package_share_directory('ur5_softmat'), 'rviz', 'ur5e_config.rviz')]
         )
     ])

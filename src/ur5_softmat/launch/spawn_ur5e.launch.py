@@ -12,9 +12,9 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     # Include the Gazebo launch file
-    launch_gazebo = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([get_package_share_directory('gazebo_ros'), '/launch/gazebo.launch.py'])
-    )
+    # launch_gazebo = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([get_package_share_directory('gazebo_ros'), '/launch/gazebo.launch.py'])
+    # )
 
     # Get the urdf file
     model_name = 'ur5e'
@@ -60,7 +60,7 @@ def generate_launch_description():
     ld.add_action(declare_y_position_cmd)
 
     # Add any conditioned actions
-    ld.add_action(launch_gazebo)
+    #ld.add_action(launch_gazebo)
     ld.add_action(start_gazebo_ros_spawner_cmd)
 
     return ld
