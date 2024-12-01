@@ -1,24 +1,34 @@
+# program to capture single image from webcam in python 
 
-# Python program to check 
-# whether the camera is opened  
-# or not 
-  
-  
-import numpy as np 
-import cv2 
-  
-  
-cap = cv2.VideoCapture(0) 
-while(cap.isOpened()): 
-      
-    while True: 
-          
-        ret, img = cap.read() 
-        cv2.imshow('img', img) 
-        if cv2.waitKey(30) & 0xff == ord('q'): 
-            break
-              
-    cap.release() 
-    cv2.destroyAllWindows() 
+# importing OpenCV library 
+import cv2
+
+# initialize the camera 
+# If you have multiple camera connected with 
+# current device, assign a value in cam_port 
+# variable according to that 
+cam_port = 0
+cam = cv2.VideoCapture(0, 2) 
+
+# reading the input using the camera 
+result, image = cam.read() 
+
+# If image will detected without any error, 
+# show result 
+if result: 
+
+	# showing result, it take frame name and image 
+	# output 
+	cv2.imshow("GeeksForGeeks", image) 
+
+	# saving image in local storage 
+	cv2.imwrite("GeeksForGeeks.png", image) 
+
+	# If keyboard interrupt occurs, destroy image 
+	# window 
+	cv2.waitKey(0) 
+	cv2.destroyWindow("GeeksForGeeks") 
+
+# If captured image is corrupted, moving to else part 
 else: 
-    print("Alert ! Camera disconnected")
+	print("No image detected. Please! try again") 

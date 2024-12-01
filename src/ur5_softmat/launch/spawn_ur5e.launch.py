@@ -4,11 +4,18 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.actions import IncludeLaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 def generate_launch_description():
+    # Include the Gazebo launch file
+    launch_gazebo = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([get_package_share_directory('gazebo_ros'), '/launch/gazebo.launch.py'])
+    )
+
     # Get the urdf file
     model_name = 'ur5e'
     model_folder = 'ur5e'
@@ -53,6 +60,7 @@ def generate_launch_description():
     ld.add_action(declare_y_position_cmd)
 
     # Add any conditioned actions
+    ld.add_action(launch_gazebo)
     ld.add_action(start_gazebo_ros_spawner_cmd)
 
     return ld
