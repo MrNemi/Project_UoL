@@ -61,6 +61,13 @@ def generate_launch_description():
         }.items()
     )
 
+    # Visualise UR5e using rviz2
+    rviz_ur5e_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(launch_file_dir, 'rviz2.launch.py')
+        )
+    )
+
     # Create the launch description and populate
     ld = LaunchDescription()
 
@@ -69,5 +76,6 @@ def generate_launch_description():
     ld.add_action(gzclient_cmd)
     ld.add_action(ur5e_state_publisher_cmd)
     ld.add_action(spawn_ur5e_cmd)
+    ld.add_action(rviz_ur5e_cmd)
 
     return ld
