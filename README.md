@@ -1,4 +1,4 @@
-# Robotic Soft Matter Scientist a.k.a R.S.MSci #
+# Robotic Soft Matter Scientist aka A.T.O.M #
 Ubuntu 22.04.5 LTS | ROS2 Humble Hawksbill
 
 
