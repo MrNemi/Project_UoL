@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 # Authors: Emmanuel W. Ombo
 
 import os
@@ -50,6 +49,14 @@ def generate_launch_description():
         launch_arguments={'use_sim_time': use_sim_time}.items()
     )
 
+    # Start joint state publisher for UR5e robotic arm
+    joint_state_publisher_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(launch_file_dir, 'joint_state_pub.launch.py')
+        ),
+        launch_arguments={'use_sim_time': use_sim_time}.items()
+    )
+
     # Spawn UR5e robotic arm
     spawn_ur5e_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -62,11 +69,11 @@ def generate_launch_description():
     )
 
     # Visualise UR5e using rviz2
-    rviz_ur5e_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(launch_file_dir, 'rviz2.launch.py')
-        )
-    )
+    # rviz_ur5e_cmd = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         os.path.join(launch_file_dir, 'rviz2.launch.py')
+    #     )
+    # )
 
     # Create the launch description and populate
     ld = LaunchDescription()
@@ -75,7 +82,8 @@ def generate_launch_description():
     ld.add_action(gzserver_cmd)
     ld.add_action(gzclient_cmd)
     ld.add_action(ur5e_state_publisher_cmd)
+    ld.add_action(joint_state_publisher_cmd)
     ld.add_action(spawn_ur5e_cmd)
-    ld.add_action(rviz_ur5e_cmd)
+    # ld.add_action(rviz_ur5e_cmd)
 
     return ld

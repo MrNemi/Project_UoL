@@ -20,7 +20,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/collision/Base.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/collision/Base.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -29,7 +29,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/visual/Base.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/visual/Base.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -74,7 +74,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/collision/Shoulder.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/collision/Shoulder.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -83,7 +83,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/visual/Shoulder.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/visual/Shoulder.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -127,7 +127,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/collision/UpperArm.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/collision/UpperArm.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -136,7 +136,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/visual/UpperArm.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/visual/UpperArm.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -180,7 +180,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/collision/Forearm.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/collision/Forearm.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -189,7 +189,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/visual/Forearm.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/visual/Forearm.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -233,7 +233,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/collision/Wrist1.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/collision/Wrist1.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -242,7 +242,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/visual/Wrist1.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/visual/Wrist1.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -286,7 +286,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/collision/Wrist2.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/collision/Wrist2.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -295,7 +295,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/visual/Wrist2.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/visual/Wrist2.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -339,7 +339,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/collision/Wrist3.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/collision/Wrist3.dae</uri>
           </mesh>
         </geometry>
       </collision>
@@ -348,7 +348,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://models/ur5e/meshes/visual/Wrist3.dae</uri>
+            <uri>package://ur5_softmat/models/ur5e/meshes/visual/Wrist3.dae</uri>
           </mesh>
         </geometry>
       </visual>

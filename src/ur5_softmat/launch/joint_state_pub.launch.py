@@ -14,7 +14,7 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
     urdf_file_name = 'ur5e.urdf'
 
-    print('urdf_file_name : {}'.format(urdf_file_name))
+    #print('urdf_file_name : {}'.format(urdf_file_name))
 
     urdf_path = os.path.join(
         get_package_share_directory('ur5_softmat'),
