@@ -22,7 +22,7 @@ def generate_launch_description():
     world = os.path.join(
         get_package_share_directory('ur5_softmat'),
         'worlds',
-        'ur5e_base.world'
+        'ur5e_lab.world'
     )
 
     gzserver_cmd = IncludeLaunchDescription(

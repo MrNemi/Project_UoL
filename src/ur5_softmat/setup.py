@@ -15,7 +15,7 @@ setup(
 
     # Include launch and other required files.
     (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
-    (os.path.join('share', package_name, 'models/ur5e'), glob(os.path.join('models/ur5e', '*sdf'))),
+    (os.path.join('share', package_name, 'models'), glob(os.path.join('models', '*.sdf'))),
     (os.path.join('share', package_name, 'scripts'), glob(os.path.join('scripts', '*py'))),
     (os.path.join('share', package_name, 'rviz'), glob(os.path.join('rviz', '*rviz'))),
     (os.path.join('share', package_name, 'urdf'), glob(os.path.join('urdf', '*urdf'))),
