@@ -6,10 +6,10 @@ class coord_handler:
        
         self.pick_start_position = start_pick_position
         self.set_start_position = start_set_position
-        self.pick_positions = self._get_pick_positions(number_pick_positions)
-        self.set_positions = self._get_set_positions(number_set_position)
+        self.pick_positions = self._get_pick_positions()
+        self.set_positions = self._get_set_positions()
 
-    def _get_pick_positions(self, number_pick_positions):
+    def _get_pick_positions(self):
         # Initialize the list to store pick positions
         pick_positions = []
         pick_positions.append(self.pick_start_position)  # Add the start pick position
@@ -33,7 +33,7 @@ class coord_handler:
         return pick_positions
     
 
-    def _get_set_positions(self, number_set_position):
+    def _get_set_positions(self):
         # Initialize the list to store set positions
         set_positions = []
         set_positions.append(self.set_start_position)  # Add the start set position
@@ -69,3 +69,8 @@ class coord_handler:
             new_position[0] += row_offset  # Modify x-axis based on row offset (for a vertical grid)
 
         return new_position
+
+
+
+
+
