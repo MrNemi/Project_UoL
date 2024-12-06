@@ -1,7 +1,7 @@
-
+import math
 
 class coord_handler:
-    def __init__(self, start_pick_position: list  , number_pick_positions :int , start_set_position :list , number_set_position : int):
+    def __init__(self, start_pick_position: list, number_pick_positions :int, start_set_position :list, number_set_position : int):
         self.init = self.init()
        
         self.pick_start_position = start_pick_position
@@ -9,67 +9,68 @@ class coord_handler:
         self.pick_positions = self._get_pick_positions()
         self.set_positions = self._get_set_positions()
 
-        # Origin positions for vial racks
-        self.rack1_origin = []
-        self.rack0_origin = []
-        self.base_position = []
-
-        col_space = 0.0035  # Convert mm to meters
-        row_space = 0.044  # Convert mm to meters
-        num_rows = 4; num_col = 2
-
-    # rIndex: 0 or 1
-    # vIndex: 0-7 for rack 0, 0-3 for rack 1
-
-    def _get_pick_positions(self, vIndex: int, rIndex: int):
-        ## do the pick position code here
-        ## this should be an array of number_pick_positions (each element is a 6 element list) with all those on the LEFT as even indexes
+    def _get_pick_positions(self):
+        # Initialize the list to store pick positions
         pick_positions = []
-        
-        if rIndex == 0:
-            print("Geting coordinates for picking vial from sample rack")
-            rackPosX = 0
-            rackPosY = 0
-            rackPosZ_grasp = self.rack0_origin[2]
-            rackPosZ_lift = self.rack0_origin[2] + 80
-            if vIndex < 4:
-                rackPosX = self.rack0_origin[0] + (vIndex * 26.6)
-                rackPosY = self.rack0_origin[1]
-            elif vIndex >= 4 and vIndex < 8:
-                rackPosX = self.rack0_origin[0] + ((vIndex - 4) * 26.6)
-                rackPosY = self.rack0_origin[1] + 45
-            else:
-                print("Invalid Vial Index!")
+        pick_positions.append(self.pick_start_position)  # Add the start pick position
 
-            """Returns the picking coordinates based on the number_pick_position."""
-            try:
-                return pick_positions[vIndex]
-            except IndexError:
-                raise ValueError("Invalid index for vial pick coordinates.")
+        # Calculate subsequent pick positions based on a 4x2 grid
+        row_offset = 0  # Start at the first row
+        column_offset = 0  # Start at the first column
+
+        for i in range(1, number_pick_positions):
+            # Assuming a simple offset of 1 for the sake of example.
+            # You can customize how to calculate the offset here
+            new_position = self._calculate_new_position(self.pick_start_position, row_offset, column_offset, grid_type="pick")
+            pick_positions.append(new_position)
+
+            # Move to the next column, and if we reach the end of columns, move to the next row
+            column_offset += 1
+            if column_offset == 2:  # If there are 2 columns, reset to the first column and move to the next row
+                column_offset = 0
+                row_offset += 1
+        
+        return pick_positions
     
 
-    def _get_set_positions(self, vIndex: int, rIndex: int):
-        ## do the set position code here
-        ## this should be an array of number_set_positions (each element is a 6 element list) with the set positions
+    def _get_set_positions(self):
+        # Initialize the list to store set positions
         set_positions = []
+        set_positions.append(self.set_start_position)  # Add the start set position
 
-        if rIndex == 1:
-            print("geting coordinates for setting vial in place rack")
-            rackPosX = 0
-            rackPosY = 0
-            rackPosZ_grasp = self.rack0_origin[2]
-            rackPosZ_lift = self.rack0_origin[2] + 80
-            if vIndex < 4:
-                rackPosX = self.rack0_origin[0] + (vIndex * 26.6)
-                rackPosY = self.rack0_origin[1]
-            elif vIndex >= 4 and vIndex < 8:
-                rackPosX = self.rack0_origin[0] + ((vIndex - 4) * 26.6)
-                rackPosY = self.rack0_origin[1] + 45
+        # Calculate subsequent set positions based on a 4x1 grid (single column, multiple rows)
+        row_offset = 1  # Start from the next row after the starting position
+
+        for i in range(1, number_set_position):
+            # Assuming a simple offset of 1 for the sake of example.
+            # You can customize how to calculate the offset here
+            new_position = self._calculate_new_position(self.set_start_position, row_offset, 0, grid_type="set")
+            set_positions.append(new_position)
+
+            # Move to the next row
+            row_offset += 1
+        
+        return set_positions
+
+
+    def _calculate_new_position(self, start_position, row_offset, col_offset, grid_type):
+        # Logic for calculating new position based or even 
+        new_position = start_position.copy()  # Start with the current position
+
+        # Apply some offset based on whether it's a pick or set position
+        if grid_type == "pick":
+            # Modify based on even or odd index
+            if index % 2 == 0:
+                new_position[0] += row_offset # Example offset on x-axis for even index
             else:
-                print("Invalid Vial Index!")
+                new_position[1] += col_offset  # Example offset on y-axis for odd index
+        elif grid_type == "set":
+            # For the set grid, the positions are 4x1, so only row changes
+            new_position[0] += row_offset  # Modify x-axis based on row offset (for a vertical grid)
 
-            """Returns the placing coordinates based on the number_set_position."""
-            try:
-                return set_positions[vIndex]
-            except IndexError:
-                raise ValueError("Invalid index for vial placing coordinates.")
+        return new_position
+
+
+
+
+
