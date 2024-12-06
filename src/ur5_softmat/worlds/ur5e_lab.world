@@ -40,12 +40,12 @@
     <!--         filename="libgazebo_ros_link_attacher.so"/> -->
 
     <!-- The robot base -->
-    <model name="ur5_base">
+    <!-- <model name="ur5e">
       <include>
-        <uri>model://ur5_base</uri>
+        <uri>model://ur5e</uri>
         <pose>0 0 0 0 0 0</pose>
       </include>
-    </model>
+    </model> -->
 
     <!-- Table -->
     <!-- Table top is at (x,y,z) = (0.7, 0, 0.775) -->

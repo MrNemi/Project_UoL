@@ -47,7 +47,7 @@ def generate_launch_description():
             '-file', sdf_path,
             '-x', x_pose,
             '-y', y_pose,
-            '-z', '0.5'
+            '-z', '0.0'
         ],
         output='screen',
     )
