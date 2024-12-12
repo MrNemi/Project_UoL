@@ -19,12 +19,19 @@ def generate_launch_description():
     # Get the urdf file
     model_name = 'ur5e'
     model_folder = 'ur5e'
+    # urdf_folder = 'urdf'
     sdf_path = os.path.join(
         get_package_share_directory('ur5_softmat'),
         'models',
         model_folder,
         'model.sdf'
     )
+
+    # urdf_path = os.path.join(
+    #     get_package_share_directory('ur5_softmat'),
+    #     urdf_folder,
+    #     'ur5e.urdf'
+    # )
 
     # Launch configuration variables specific to simulation
     x_pose = LaunchConfiguration('x_pose', default='0.0')
