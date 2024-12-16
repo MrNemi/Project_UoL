@@ -19,7 +19,7 @@ def generate_launch_description():
     # Get the urdf file
     model_name = 'ur5e'
     model_folder = 'ur5e'
-    # urdf_folder = 'urdf'
+    #urdf_folder = 'urdf'
     sdf_path = os.path.join(
         get_package_share_directory('ur5_softmat'),
         'models',
@@ -54,6 +54,7 @@ def generate_launch_description():
         arguments=[
             '-entity', model_name,
             '-file', sdf_path,
+            #'-file', urdf_path,
             '-x', x_pose,
             '-y', y_pose,
             '-z', z_pose,
