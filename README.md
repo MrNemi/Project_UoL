@@ -34,3 +34,5 @@ The following resources were useful for the development of this project:
 * https://www.learnros2.com/ros/tutorials/robotic-arm-demo
 
 * https://github.com/corlab/cogimon-gazebo-models/tree/master/universal-robot-ur5
+
+* https://github.com/smahala02/Materials-Science-Image-Analysis

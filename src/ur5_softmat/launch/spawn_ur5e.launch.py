@@ -12,14 +12,13 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     # Include the Gazebo launch file
-    # launch_gazebo = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource([get_package_share_directory('gazebo_ros'), '/launch/gazebo.launch.py'])
-    # )
+    launch_gazebo = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([get_package_share_directory('gazebo_ros'), '/launch/gazebo.launch.py'])
+    )
 
-    # Get the urdf file
+    # Get the sdf file
     model_name = 'ur5e'
     model_folder = 'ur5e'
-    #urdf_folder = 'urdf'
     sdf_path = os.path.join(
         get_package_share_directory('ur5_softmat'),
         'models',
@@ -27,6 +26,17 @@ def generate_launch_description():
         'model.sdf'
     )
 
+    # Get the sdf file
+    # model_name = 'ur5'
+    # model_folder = 'universal-robot-ur5'
+    # sdf_path = os.path.join(
+    #     get_package_share_directory('ur5_softmat'),
+    #     'models',
+    #     model_folder,
+    #     'model.sdf'
+    # )
+
+    # urdf_folder = 'urdf'
     # urdf_path = os.path.join(
     #     get_package_share_directory('ur5_softmat'),
     #     urdf_folder,
@@ -71,7 +81,7 @@ def generate_launch_description():
     ld.add_action(declare_y_position_cmd)
 
     # Add any conditioned actions
-    #ld.add_action(launch_gazebo)
+    ld.add_action(launch_gazebo)
     ld.add_action(start_gazebo_ros_spawner_cmd)
 
     return ld

@@ -37,7 +37,7 @@
 # import cv2
 
 # # Open the default camera
-# cam = cv2.VideoCapture(2)
+# cam = cv2.VideoCapture(1)
 
 # # Get the default frame width and height
 # frame_width = int(cam.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -70,37 +70,37 @@
 # using pygame library 
 
 # importing the pygame library 
-import pygame 
-import pygame.camera 
+# import pygame 
+# import pygame.camera 
 
-# initializing the camera 
-pygame.camera.init() 
+# # initializing the camera 
+# pygame.camera.init() 
 
-# make the list of all available cameras 
-camlist = pygame.camera.list_cameras() 
+# # make the list of all available cameras 
+# camlist = pygame.camera.list_cameras() 
 
-# if camera is detected or not 
-if camlist: 
+# # if camera is detected or not 
+# if camlist: 
 
-	# initializing the cam variable with default camera 
-	cam = pygame.camera.Camera(camlist[0], (640, 480)) 
+# 	# initializing the cam variable with default camera 
+# 	cam = pygame.camera.Camera(camlist[1], (640, 480)) 
 
-	# opening the camera 
-	cam.start() 
+# 	# opening the camera 
+# 	cam.start() 
 
-	# capturing the single image 
-	image = cam.get_image() 
+# 	# capturing the single image 
+# 	image = cam.get_image() 
 
-	# saving the image 
-	pygame.image.save(image, "filename.jpg") 
+# 	# saving the image 
+# 	pygame.image.save(image, "filename.jpg") 
 
-# if camera is not detected the moving to else part 
-else: 
-	print("No camera on current device") 
+# # if camera is not detected the moving to else part 
+# else: 
+# 	print("No camera on current device") 
 
 # from cv2_enumerate_cameras import enumerate_cameras
 # import ctypes
-# print (dir(ctypes))
+# #print (dir(ctypes))
 
 # for camera_info in enumerate_cameras():
 #     print(f'{camera_info.index}: {camera_info.name}')
