@@ -3,12 +3,12 @@
 # importing OpenCV library 
 # import cv2
 
-# # initialize the camera 
-# # If you have multiple camera connected with 
-# # current device, assign a value in cam_port 
-# # variable according to that 
+# initialize the camera 
+# If you have multiple camera connected with 
+# current device, assign a value in cam_port 
+# variable according to that 
 # cam_port = 0
-# cam = cv2.VideoCapture(0, 2) 
+# cam = cv2.VideoCapture(cam_port) 
 
 # # reading the input using the camera 
 # result, image = cam.read() 
@@ -19,51 +19,51 @@
 
 # 	# showing result, it take frame name and image 
 # 	# output 
-# 	cv2.imshow("GeeksForGeeks", image) 
+# 	cv2.imshow("Camera", image) 
 
 # 	# saving image in local storage 
-# 	cv2.imwrite("GeeksForGeeks.png", image) 
+# 	#cv2.imwrite("Camera.png", image) 
 
 # 	# If keyboard interrupt occurs, destroy image 
 # 	# window 
 # 	cv2.waitKey(0) 
-# 	cv2.destroyWindow("GeeksForGeeks") 
+# 	cv2.destroyWindow("Camera") 
 
 # # If captured image is corrupted, moving to else part 
 # else: 
 # 	print("No image detected. Please! try again")
 
 
-# import cv2
+import cv2
 
-# # Open the default camera
-# cam = cv2.VideoCapture(1)
+# Open the default camera
+cam = cv2.VideoCapture(0)
 
-# # Get the default frame width and height
-# frame_width = int(cam.get(cv2.CAP_PROP_FRAME_WIDTH))
-# frame_height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
+# Get the default frame width and height
+frame_width = int(cam.get(cv2.CAP_PROP_FRAME_WIDTH))
+frame_height = int(cam.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-# # Define the codec and create VideoWriter object
-# # fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-# # out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (frame_width, frame_height))
+# Define the codec and create VideoWriter object
+# fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+# out = cv2.VideoWriter('output.mp4', fourcc, 20.0, (frame_width, frame_height))
 
-# while True:
-#     ret, frame = cam.read()
+while True:
+    ret, frame = cam.read()
 
-#     # Write the frame to the output file
-#     # out.write(frame)
+    # Write the frame to the output file
+    # out.write(frame)
 
-#     # Display the captured frame
-#     cv2.imshow('Camera', frame)
+    # Display the captured frame
+    cv2.imshow('Camera', frame)
 
-#     # Press 'q' to exit the loop
-#     if cv2.waitKey(1) == ord('q'):
-#         break
+    # Press 'q' to exit the loop
+    if cv2.waitKey(1) == ord('q'):
+        break
 
-# # Release the capture and writer objects
-# cam.release()
-# #out.release()
-# cv2.destroyAllWindows()
+# Release the capture and writer objects
+cam.release()
+#out.release()
+cv2.destroyAllWindows()
 
 
 # Python program to capture a single image 
@@ -83,7 +83,7 @@
 # if camlist: 
 
 # 	# initializing the cam variable with default camera 
-# 	cam = pygame.camera.Camera(camlist[1], (640, 480)) 
+# 	cam = pygame.camera.Camera(camlist[0], (640, 480)) 
 
 # 	# opening the camera 
 # 	cam.start() 
@@ -153,3 +153,24 @@
 # device_list = get_MF_devices()
 # for i, device_name in enumerate(device_list):
 #     print(f"opencv_index: {i}, device_name: {device_name}")
+
+# import pygame
+# import pygame.camera
+
+# pygame.init()
+
+# gameDisplay = pygame.display.set_mode((640,480))
+
+# pygame.camera.init()
+# print (pygame.camera.list_cameras())
+# cam = pygame.camera.Camera('/dev/video0')
+# cam.start()
+# while True:
+#    img = cam.get_image()
+#    gameDisplay.blit(img,(0,0))
+#    pygame.display.update()
+#    for event in pygame.event.get() :
+#       if event.type == pygame.QUIT :
+#          cam.stop()
+#          pygame.quit()
+#          exit()

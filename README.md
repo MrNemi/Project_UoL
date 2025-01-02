@@ -15,6 +15,11 @@ This repository contains ROS 2 packages for simulating and controlling the UR5e 
 * Pick and place task implementation using the MoveIt Task Constructor (MTC)
   
 # Usage #
+## Connecting USB webcam to WSL
+
+* https://learn.microsoft.com/en-us/windows/wsl/connect-usb
+
+* https://www.youtube.com/watch?v=t_YnACEPmrM
 
 
 # Dependencies #
