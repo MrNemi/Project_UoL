@@ -12,23 +12,13 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     # Include the Gazebo launch file
-    launch_gazebo = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([get_package_share_directory('gazebo_ros'), '/launch/gazebo.launch.py'])
-    )
+    # launch_gazebo = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([get_package_share_directory('gazebo_ros'), '/launch/gazebo.launch.py'])
+    # )
 
     # Get the sdf file
-    model_name = 'ur5e'
-    model_folder = 'ur5e'
-    sdf_path = os.path.join(
-        get_package_share_directory('ur5_softmat'),
-        'models',
-        model_folder,
-        'model.sdf'
-    )
-
-    # Get the sdf file
-    # model_name = 'ur5'
-    # model_folder = 'universal-robot-ur5'
+    # model_name = 'ur5e'
+    # model_folder = 'ur5e'
     # sdf_path = os.path.join(
     #     get_package_share_directory('ur5_softmat'),
     #     'models',
@@ -36,12 +26,15 @@ def generate_launch_description():
     #     'model.sdf'
     # )
 
-    # urdf_folder = 'urdf'
-    # urdf_path = os.path.join(
-    #     get_package_share_directory('ur5_softmat'),
-    #     urdf_folder,
-    #     'ur5e.urdf'
-    # )
+    # Get the sdf file
+    model_name = 'ur5'
+    model_folder = 'universal-robot-ur5'
+    sdf_path = os.path.join(
+        get_package_share_directory('ur5_softmat'),
+        'models',
+        model_folder,
+        'model.sdf'
+    )
 
     # Launch configuration variables specific to simulation
     x_pose = LaunchConfiguration('x_pose', default='0.0')
@@ -64,7 +57,6 @@ def generate_launch_description():
         arguments=[
             '-entity', model_name,
             '-file', sdf_path,
-            #'-file', urdf_path,
             '-x', x_pose,
             '-y', y_pose,
             '-z', z_pose,
@@ -81,7 +73,7 @@ def generate_launch_description():
     ld.add_action(declare_y_position_cmd)
 
     # Add any conditioned actions
-    ld.add_action(launch_gazebo)
+    #ld.add_action(launch_gazebo)
     ld.add_action(start_gazebo_ros_spawner_cmd)
 
     return ld
